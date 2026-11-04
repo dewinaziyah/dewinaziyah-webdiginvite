@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Undangan Pernikahan Dewi & Fulan</title>
+  
+  <!-- SEO & Meta Tags -->
+  <meta name="description" content="Undangan Pernikahan Digital Dewi Naziyah & Fulan - Minggu, 20 Desember 2026 di Gedung Serbaguna UNUSIDA Sidoarjo.">
+  <meta property="og:title" content="Undangan Pernikahan Dewi & Fulan">
+  <meta property="og:description" content="Kami mengundang Anda untuk hadir dan memberikan doa restu pada pernikahan kami.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="modal-open">
+
+  <!-- ==========================================================================
+       1. OPENING SCREEN OVERLAY
+       ========================================================================== -->
+  <div id="opening-screen">
+    <div class="opening-bg-overlay"></div>
+    <div class="opening-card">
+      <p class="opening-subtitle">THE WEDDING OF</p>
+      <h1 class="opening-couple-names script-font" id="opening-couple-names">Dewi & Fulan</h1>
+      <p class="opening-date">20.12.2026</p>
+
+      <div class="guest-card-box">
+        <p class="guest-salutation">Kepada Yth. Bapak/Ibu/Saudara/i:</p>
+        <div class="guest-name-display" id="opening-guest-name">Tamu Undangan</div>
+      </div>
+
+      <button type="button" class="btn-primary" onclick="openInvitation()">
+        <i class="fas fa-envelope-open"></i> Buka Undangan
+      </button>
+    </div>
+  </div>
+
+  <!-- FLOATING MUSIC PLAYER BUTTON -->
+  <button id="music-toggle" aria-label="Toggle Musik Background" title="Putar/Hentikan Musik">
+    <i class="fas fa-music"></i>
+  </button>
+  <audio id="wedding-audio" loop src="audio/wedding-music.mp3"></audio>
+
+  <!-- ==========================================================================
+       2. HERO SECTION
+       ========================================================================== -->
+  <section id="hero" class="hero-section">
+    <div class="hero-content">
+      <p class="hero-subhead">THE WEDDING OF</p>
+      <h1 class="hero-title" id="hero-couple-names">DEWI & FULAN</h1>
+      
+      <div class="hero-image-wrapper">
+        <img src="images/cover.jpg" alt="Foto Sampul Pernikahan Dewi & Fulan">
+      </div>
+
+      <div class="hero-date-badge" id="hero-date">Minggu, 20 Desember 2026</div>
+
+      <!-- Countdown Component -->
+      <div id="countdown-boxes" class="countdown-container">
+        <div class="countdown-box">
+          <div class="countdown-number" id="days">00</div>
+          <div class="countdown-label">Hari</div>
+        </div>
+        <div class="countdown-box">
+          <div class="countdown-number" id="hours">00</div>
+          <div class="countdown-label">Jam</div>
+        </div>
+        <div class="countdown-box">
+          <div class="countdown-number" id="minutes">00</div>
+          <div class="countdown-label">Menit</div>
+        </div>
+        <div class="countdown-box">
+          <div class="countdown-number" id="seconds">00</div>
+          <div class="countdown-label">Detik</div>
+        </div>
+      </div>
+      
+      <div id="countdown-ended" class="countdown-ended" style="display: none;">
+        The Event Has Ended (Acara telah selesai)
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       3. COUPLE SECTION
+       ========================================================================== -->
+  <section id="couple" class="section section-alt">
+    <div class="container">
+      <div class="section-title-wrapper">
+        <span class="section-subtitle">MEMPELAI</span>
+        <h2 class="section-title">Dewi & Fulan</h2>
+      </div>
+
+      <p class="couple-intro-text">
+        "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari meksismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang."<br><strong>(QS. Ar-Rum: 21)</strong>
+      </p>
+
+      <div class="couple-grid">
+        <!-- Bride -->
+        <div class="couple-card" id="bride-card">
+          <div class="couple-photo-wrapper">
+            <img id="bride-photo" src="images/bride.jpg" alt="Dewi Naziyah">
+          </div>
+          <h3 class="couple-name" id="bride-name">Dewi Naziyah</h3>
+          <p class="couple-parents" id="bride-parents">Putri pertama dari Bapak H. Ahmad & Ibu Hj. Siti</p>
+        </div>
+
+        <div class="couple-divider-ampersand">&</div>
+
+        <!-- Groom -->
+        <div class="couple-card" id="groom-card">
+          <div class="couple-photo-wrapper">
+            <img id="groom-photo" src="images/groom.jpg" alt="Fulan">
+          </div>
+          <h3 class="couple-name" id="groom-name">Fulan</h3>
+          <p class="couple-parents" id="groom-parents">Putra pertama dari Bapak H. Budi & Ibu Hj. Aminah</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       4. WEDDING EVENT SECTION
+       ========================================================================== -->
+  <section id="event" class="section">
+    <div class="container">
+      <div class="section-title-wrapper">
+        <span class="section-subtitle">RANGKAIAN ACARA</span>
+        <h2 class="section-title">Wedding Event</h2>
+      </div>
+
+      <div class="event-grid">
+        <!-- Akad Nikah Card -->
+        <div class="event-card">
+          <div class="event-badge">AKAD NIKAH</div>
+          <h3 class="event-type-title">Akad Nikah</h3>
+          <ul class="event-details-list">
+            <li class="event-details-item">
+              <i class="far fa-calendar-alt"></i>
+              <span id="akad-date">Minggu, 20 Desember 2026</span>
+            </li>
+            <li class="event-details-item">
+              <i class="far fa-clock"></i>
+              <span id="akad-time">09.00 WIB – Selesai</span>
+            </li>
+            <li class="event-details-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span id="akad-location">Gedung Serbaguna UNUSIDA</span>
+            </li>
+            <li class="event-details-item">
+              <i class="far fa-building"></i>
+              <span id="akad-address">Jl. Lingkar Timur, Sidoarjo</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Reception Card -->
+        <div class="event-card">
+          <div class="event-badge">RESEPSI</div>
+          <h3 class="event-type-title">Resepsi Pernikahan</h3>
+          <ul class="event-details-list">
+            <li class="event-details-item">
+              <i class="far fa-calendar-alt"></i>
+              <span id="reception-date">Minggu, 20 Desember 2026</span>
+            </li>
+            <li class="event-details-item">
+              <i class="far fa-clock"></i>
+              <span id="reception-time">11.00 WIB – Selesai</span>
+            </li>
+            <li class="event-details-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span id="reception-location">Gedung Serbaguna UNUSIDA</span>
+            </li>
+            <li class="event-details-item">
+              <i class="far fa-building"></i>
+              <span id="reception-address">Jl. Lingkar Timur, Sidoarjo</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       5. LOCATION SECTION
+       ========================================================================== -->
+  <section id="location" class="section section-alt">
+    <div class="container">
+      <div class="section-title-wrapper">
+        <span class="section-subtitle">LOKASI ACARA</span>
+        <h2 class="section-title">Peta Petunjuk Lokasi</h2>
+      </div>
+
+      <div class="location-card">
+        <h3 class="venue-name" id="venue-name-display">Gedung Serbaguna UNUSIDA</h3>
+        <p class="venue-address" id="venue-address-display">Jl. Lingkar Timur, Sidoarjo</p>
+        
+        <div class="map-placeholder">
+          <!-- Google Maps Iframe Sandbox -->
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.471556272379!2d112.7291113!3d-7.4684221!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7e6df5b9ef5e9%3A0x7d6a54b9d0b678c!2sUNUSIDA!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Peta Lokasi UNUSIDA Sidoarjo">
+          </iframe>
+        </div>
+
+        <a id="btn-google-maps" href="https://maps.google.com/?q=Gedung+Serbaguna+UNUSIDA+Sidoarjo" target="_blank" rel="noopener noreferrer" class="btn-primary">
+          <i class="fas fa-map-marked-alt"></i> Lihat Lokasi di Google Maps
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       6. LOVE STORY SECTION
+       ========================================================================== -->
+  <section id="story" class="section">
+    <div class="container">
+      <div class="section-title-wrapper">
+        <span class="section-subtitle">PERJALANAN KAMI</span>
+        <h2 class="section-title">Love Story</h2>
+      </div>
+
+      <div class="timeline" id="story-timeline">
+        <!-- Rendered dynamically by script.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       7. GALLERY SECTION
+       ========================================================================== -->
+  <section id="gallery" class="section section-alt">
+    <div class="container">
+      <div class="section-title-wrapper">
+        <span class="section-subtitle">GALERI FOTO</span>
+        <h2 class="section-title">Momen Bahagia</h2>
+      </div>
+
+      <div class="gallery-grid" id="gallery-grid">
+        <!-- Rendered dynamically by script.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY LIGHTBOX MODAL -->
+  <div id="gallery-modal" class="modal-lightbox" role="dialog" aria-modal="true" aria-label="Pratinjau Foto">
+    <div class="modal-content-wrapper">
+      <button id="modal-close" class="modal-close-btn" aria-label="Tutup Pratinjau">&times;</button>
+      <button id="modal-prev" class="modal-nav-btn modal-prev" aria-label="Foto Sebelumnya"><i class="fas fa-chevron-left"></i></button>
+      <img id="modal-img" class="modal-image" src="" alt="Foto Perbesar">
+      <p id="modal-caption" style="color: #ffffff; margin-top: 1rem; text-align: center; font-size: 0.9rem;"></p>
+      <button id="modal-next" class="modal-nav-btn modal-next" aria-label="Foto Selanjutnya"><i class="fas fa-chevron-right"></i></button>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       8. GIFT SECTION
+       ========================================================================== -->
+  <section id="gift" class="section">
+    <div class="container">
+      <div class="section-title-wrapper">
+        <span class="section-subtitle">TANDA KASIH</span>
+        <h2 class="section-title">Wedding Gift</h2>
+      </div>
+
+      <p class="gift-intro-text">
+        Doa restu Anda merupakan hadiah terindah bagi kami. Namun apabila Anda ingin memberikan tanda kasih, dapat disalurkan melalui rekening berikut:
+      </p>
+
+      <div class="gift-cards-wrapper">
+        <!-- Bank 1 -->
+        <div class="bank-card">
+          <div class="bank-logo" id="bank1-name">BANK BCA</div>
+          <div class="bank-number" id="bank1-number">1234567890</div>
+          <div class="bank-holder" id="bank1-holder">a.n. Dewi Naziyah</div>
+          <button type="button" class="btn-secondary" onclick="copyToClipboard('1234567890')">
+            <i class="far fa-copy"></i> Salin Nomor Rekening
+          </button>
+        </div>
+
+        <!-- Bank 2 -->
+        <div class="bank-card">
+          <div class="bank-logo" id="bank2-name">BANK MANDIRI</div>
+          <div class="bank-number" id="bank2-number">0987654321</div>
+          <div class="bank-holder" id="bank2-holder">a.n. Fulan</div>
+          <button type="button" class="btn-secondary" onclick="copyToClipboard('0987654321')">
+            <i class="far fa-copy"></i> Salin Nomor Rekening
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast-notification" role="status" aria-live="polite">
+    Nomor rekening berhasil disalin.
+  </div>
+
+  <!-- ==========================================================================
+       9. RSVP & WISHES SECTION
+       ========================================================================== -->
+  <section id="rsvp" class="section section-alt">
+    <div class="container">
+      <div class="section-title-wrapper">
+        <span class="section-subtitle">KONFIRMASI KEHADIRAN</span>
+        <h2 class="section-title">RSVP & Ucapan Doa</h2>
+      </div>
+
+      <div class="rsvp-card">
+        <form id="rsvp-form">
+          <div class="form-group">
+            <label for="rsvp-name" class="form-label">Nama Lengkap</label>
+            <input type="text" id="rsvp-name" class="form-control" placeholder="Masukkan nama Anda..." required>
+          </div>
+
+          <div class="form-group">
+            <label for="rsvp-status" class="form-label">Konfirmasi Kehadiran</label>
+            <select id="rsvp-status" class="form-control">
+              <option value="Hadir">Saya akan Hadir</option>
+              <option value="Tidak Hadir">Maaf, Saya Tidak Bisa Hadir</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="rsvp-count" class="form-label">Jumlah Tamu</label>
+            <input type="number" id="rsvp-count" class="form-control" value="1" min="1" max="5">
+          </div>
+
+          <div class="form-group">
+            <label for="rsvp-message" class="form-label">Pesan / Ucapan Selamat</label>
+            <textarea id="rsvp-message" class="form-control" placeholder="Tuliskan ucapan & doa restu Anda untuk kedua mempelai..."></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary" style="width: 100%;">
+            <i class="far fa-paper-plane"></i> Kirim Konfirmasi
+          </button>
+
+          <p class="prototype-notice">
+            *Catatan: Fitur RSVP pada prototype ini menggunakan penyimpanan lokal (localStorage).
+          </p>
+        </form>
+      </div>
+
+      <!-- Live Wishes List Display -->
+      <div class="wishes-container">
+        <h3 class="wishes-title">Doa & Ucapan Tamu Undangan</h3>
+        <div class="wishes-list" id="wishes-list">
+          <!-- Rendered dynamically from localStorage -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       10. CLOSING SECTION
+       ========================================================================== -->
+  <section id="closing" class="closing-section">
+    <div class="container">
+      <p class="closing-quote">
+        Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kami.
+      </p>
+
+      <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem;">Kami yang berbahagia,</p>
+
+      <h2 class="closing-names script-font">Dewi & Fulan</h2>
+      <p style="font-size: 0.9rem; letter-spacing: 2px; color: var(--primary-gold-dark); text-transform: uppercase; font-weight: 600;">Beserta Keluarga Besar</p>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       11. BOTTOM NAVIGATION
+       ========================================================================== -->
+  <nav class="bottom-nav" id="bottom-nav" aria-label="Navigasi Halaman">
+    <a href="#hero" class="nav-link active">
+      <i class="fas fa-home"></i>
+      <span>Home</span>
+    </a>
+    <a href="#couple" class="nav-link">
+      <i class="fas fa-heart"></i>
+      <span>Couple</span>
+    </a>
+    <a href="#event" class="nav-link">
+      <i class="fas fa-calendar-alt"></i>
+      <span>Event</span>
+    </a>
+    <a href="#gallery" class="nav-link">
+      <i class="fas fa-images"></i>
+      <span>Gallery</span>
+    </a>
+    <a href="#rsvp" class="nav-link">
+      <i class="fas fa-envelope"></i>
+      <span>RSVP</span>
+    </a>
+  </nav>
+
+  <footer>
+    <p>&copy; 2026 Dewi & Fulan Wedding Invitation. Prototype Undangan Digital.</p>
+  </footer>
+
+  <!-- Script JS -->
+  <script src="js/script.js"></script>
+</body>
+</html>
